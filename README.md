@@ -2,15 +2,36 @@
 
 Frontend Intern Task implementation matching the provided dark ReactFlow canvas reference.
 
+## Live Demo
+
+🔗 https://ainyx-app-graph-builder.vercel.app/
+
+## Screenshot
+
+![ReactFlow Cloud Canvas](./public/screenshot.png)
+
 ## Tech Stack
 
-- React + Vite
-- TypeScript strict mode
-- ReactFlow (`@xyflow/react`)
-- shadcn-style local UI primitives
-- TanStack Query
-- Zustand
-- MSW mock API layer
+* React + Vite
+* TypeScript (Strict Mode)
+* ReactFlow (`@xyflow/react`)
+* shadcn-style local UI primitives
+* TanStack Query
+* Zustand
+* MSW Mock API Layer
+
+## Features
+
+* Interactive ReactFlow canvas
+* Drag, pan, zoom, and fit view support
+* Node and edge selection
+* Edge deletion support
+* Minimap and controls
+* Responsive layout
+* Desktop inspector panel
+* Mobile slide-over inspector drawer
+* Mock API with simulated latency and status updates
+* Zustand-powered state management
 
 ## Scripts
 
@@ -23,9 +44,16 @@ npm run lint
 npm run typecheck
 ```
 
-## Key Decisions
+## Architecture Decisions
 
-- The canvas uses ReactFlow nodes, edges, minimap, controls, fit view, selection, drag, pan, zoom, and delete support.
-- Mock API handlers return apps, nodes, and edges with simulated latency and occasional status changes.
-- Zustand stores selected app, selected node, active inspector tab, mobile inspector state, and selected edge id.
-- The inspector is fixed on desktop and turns into a slide-over drawer on small screens.
+* ReactFlow manages nodes, edges, interactions, and viewport controls.
+* Zustand stores selected app, selected node, selected edge, inspector tab state, and mobile drawer state.
+* TanStack Query handles server-state synchronization with the mock API.
+* MSW provides realistic API mocking and network simulation.
+* The inspector remains fixed on desktop and transforms into a slide-over drawer on mobile devices.
+
+## Deployment
+
+Hosted on Vercel:
+
+https://ainyx-app-graph-builder.vercel.app/
